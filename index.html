@@ -3,41 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de pokemones</title>
 </head>
 <body class="bg-red-500">
         
-        <header class="w-full h-[10vh] bg-red-700 flex justify-around md:justify-between items-center">
-            
-            <var class="md:ml-10 text-[25px] font-extrabold text-yellow-300">Pokémon</var>
-                
-            <!-- Icono del menú desplegable -->
-                <label class="md:hidden relative">
-                    <input class="hidden peer" type="checkbox" />
-                    <div class="w-8 h-10 gap-0.5 cursor-pointer flex flex-col items-center justify-center">
-                        <div class="w-[50%] h-[2px] bg-black rounded-sm transition-all duration-300 origin-left peer-checked:rotate-[-45deg]"></div>
-                        <div class="w-[50%] h-[2px] bg-black rounded-md transition-all duration-300 peer-checked:hidden"></div>
-                        <div class="w-[50%] h-[2px] bg-black rounded-md transition-all duration-300 origin-left peer-checked:rotate-[45deg]"></div>
-                    </div>
-        
-                    <!-- Menú desplegable -->
-                    <nav class="relative top-12 left-0 bg-white text-black w-40 py-2 hidden peer-checked:flex flex-col rounded shadow-lg z-10">
-                        <a href="#/" class="px-4 py-2 hover:bg-gray-200">Inicio</a>
-                        <a href="#/about" class="px-4 py-2 hover:bg-gray-200">Pokemones</a>
-                        <a href="#/contact" class="px-4 py-2 hover:bg-gray-200">Acerca de...</a>
-                    </nav>
-                </label>
-    
-            <section class=" flex gap-10 text-white font-bold mr-10 max-md:hidden">
-                <a href="#/" data-link>Inicio</a>
-                <a href="#/about" data-link>Pokemones</a>
-                <a href="#/contact" data-link>Acerca de...</a>
-            </section>
+        <header class="w-full h-[10vh] bg-red-700 flex justify-center items-center"> 
+            <var class="text-[25px] font-extrabold text-yellow-300">Pokémon</var>  
         </header>
 
-        <main>
+        <!-- Contenido pokemones -->
+        <section id="pokemones">
             <section class="p-4">       
-                <form class="max-w-md mx-auto">   
+                <form class="max-w-md mx-auto"> 
+                    <!-- Input de búsqueda -->  
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">search</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -56,10 +34,12 @@
                     Aqui van lo pokemones
                 </div>
             </section>
+        </section>
 
-        </main>
+        
 
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="actions.js"></script>
 </body>
 </html>
