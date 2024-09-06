@@ -7,18 +7,22 @@ for(let i = 1; i<=151; i++ ){
     .then(data=> mostrarPokemon(data))
 }
 
-function mostrarPokemon(data){
+function mostrarPokemon(data) {
+    let types = data.types.map(type => type.type.name);
+
     const div = document.createElement('div');
     div.classList.add('pokemones');
-    div.innerHTML = 
-    `<div class="md:size-[80%]">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="pikachu" class="w-full">
-                </div>
-                <div class="pokemon-info">
-                    <p>#025</p>
-                    <h2>${data.name}</h2>
-                    <p>Electric</p>
-                    <p>4m | 60kg</p>
-                </div>`;
- listaDePokemones.append(div);
+    div.innerHTML = `
+        <div class="md:size-[80%]">
+            <img src="${data.sprites.other['official-artwork'].front_default}" alt="${data.name}" class="w-full">
+        </div>
+        <div class="mt-5">
+            <p class="font-extrabold text-gray-400">${data.id}</p>
+            <h2 class="font-bold">${data.name}</h2>
+            <p>${types.map(type => `<span class="type-badge ${type}">${type}</span>`).join(' ')}</p> <!-- Aquí muestro los tipos correctamente -->
+            <p>${data.height} | ${data.weight}</p>
+        </div>
+    `;
+    listaDePokemones.append(div);
 }
+
