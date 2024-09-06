@@ -11,25 +11,14 @@ function mostrarPokemon(data){
     const div = document.createElement('div');
     div.classList.add('pokemones');
     div.innerHTML = 
-    `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="pikachu" class="w-full">
+    `<div class="md:size-[80%]">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="pikachu" class="w-full">
+                </div>
                 <div class="pokemon-info">
                     <p>#025</p>
-                    <h2>Pikachu</h2>
+                    <h2>${data.name}</h2>
                     <p>Electric</p>
                     <p>4m | 60kg</p>
                 </div>`;
-    
-
-/*
-
-<div class="pokemones">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="pikachu" class="w-full">
-                <div class="pokemon-info">
-                    <p>#025</p>
-                    <h2>Pikachu</h2>
-                    <p>Electric</p>
-                    <p>4m | 60kg</p>
-                </div>
-            </div>
-            
-*/
+ listaDePokemones.append(div);
+}
