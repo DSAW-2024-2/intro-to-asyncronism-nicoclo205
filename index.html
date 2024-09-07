@@ -69,6 +69,50 @@
         .rock, .ghost, .shadow, .steel, .unknown, .normal {
             background-color: #c0c0c0; 
         }
+
+        .pokeball{
+            position: relative;
+            width: 6vw;  
+            height: 6vw;
+            max-width: 150px;
+            max-height: 150px;  
+            background-color: white;
+            border: 0.3vw solid black;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pokeball::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background-color: red;
+            border-radius: 50% 50% 0 0;
+            top: 0;
+        }
+
+        .pokeball::after{
+            content: '';
+            position: absolute;
+            top: calc(50% - 3px);
+            width: 100%;
+            height: 40%;
+            background-color: white;
+            
+        }
+
+        .boton{
+            width: 2vw;
+            height: 2vw;
+            border: 4px solid;
+            border-radius: 50%;
+            z-index:10;
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -76,7 +120,9 @@
 <body class="bg-cyan-100">
     <header class="w-full h-[15vh] bg-red-700 flex justify-around items-center"> 
         <!-- Título de la página -->
-        <p>❤️</p>
+        <div class="pokeball">
+            <div class="boton hidden md:block"></div>
+        </div>
         <h1 class="text-[35px] font-extrabold text-yellow-300">POKEMON</h1>  
         <button class="bg-red-900 px-4 py-1 rounded-lg text-white hover:bg-red-400 hover:shadow hover:shadow-white" onclick="location.reload();">Inicio</button>
     </header>
