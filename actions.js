@@ -26,13 +26,13 @@ function mostrarPokemon(data) {
     div.classList.add('pokemones');
     div.innerHTML = `
         <div class="md:size-[80%]">
-            <img src="${data.sprites.other['official-artwork'].front_default}" alt="${data.name}" class="w-full">
+            <img src="${data.sprites.other['official-artwork'].front_default}" alt="${data.name}" class="">
         </div>
         <div class="mt-5">
             <p class="font-extrabold text-gray-400">${dataId}</p>
             <h2 class="font-bold">${data.name}</h2>
-            <p>${types.map(type => `<span class="type-badge ${type}">${type}</span>`).join(' ')}</p>
-            <p>${data.height} | ${data.weight}</p>
+            <p class="m-2 grid grid-cols-2 gap-2">${types.map(type => `<span class="type-badge ${type}">${type}</span>`).join(' ')}</p>
+            <p class="text-gray-600">${data.height}m <span class="text-gray-200">|</span> ${data.weight}kg</p>
         </div>
     `;
     listaDePokemones.append(div);
