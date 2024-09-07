@@ -31,7 +31,7 @@ function mostrarPokemon(data) {
         <div class="mt-5">
             <p class="font-extrabold text-gray-400">${dataId}</p>
             <h2 class="font-bold">${data.name}</h2>
-            <p class="m-2 grid grid-cols-2 gap-2">${types.map(type => `<span class="type-badge ${type}">${type}</span>`).join(' ')}</p>
+            <p class="m-2 flex gap-[1rem]">${types.map(type => `<span class="type-badge ${type}">${type}</span>`).join(' ')}</p>
             <p class="text-gray-600">${data.height}m <span class="text-gray-200">|</span> ${data.weight}kg</p>
         </div>
     `;
