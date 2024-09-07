@@ -20,6 +20,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            img {
+                width: 100%;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
         }
 
         .type-badge {
@@ -68,7 +76,9 @@
 <body class="bg-cyan-100">
     <header class="w-full h-[15vh] bg-red-700 flex justify-around items-center"> 
         <!-- Título de la página -->
+        <p>❤️</p>
         <h1 class="text-[35px] font-extrabold text-yellow-300">POKEMON</h1>  
+        <button class="bg-red-900 px-4 py-1 rounded-lg text-white hover:bg-red-400 hover:shadow hover:shadow-white" onclick="location.reload();">Inicio</button>
     </header>
 
     <section class="p-4">       
@@ -91,9 +101,11 @@
     <!-- Parte principal de contenido -->
     <main class="flex justify-center">
         <!-- Contenedor de pokemones -->
+         
         <section class="flex justify-around items-center flex-wrap gap-y-10 bg-gray-100 w-[90%] md:w-[60%] rounded-lg p-10 shadow-lg" id="listaPokemon">
             <!-- Cada div contendrá un pokemon con su información -->
         </section>
+       
     </main>
 
     <script src="https://cdn.tailwindcss.com"></script>
