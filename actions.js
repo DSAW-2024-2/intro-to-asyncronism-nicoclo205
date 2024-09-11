@@ -1,9 +1,22 @@
 const listaDePokemones = document.querySelector('#listaPokemon');
+const loaderContainer = document.querySelector('#loaderContainer');
+const searchForm = document.querySelector('#search-form');
 let url = "https://pokeapi.co/api/v2/pokemon/";
 let pokemones = []; // Array global para almacenar los datos de los Pokémon
 
+// Función para mostrar el loader
+function showLoader() {
+    loaderContainer.classList.remove('hidden');
+}
+
+// Función para ocultar el loader
+function hideLoader() {
+    loaderContainer.classList.add('hidden');
+}
+
 // Función para cargar los Pokémon secuencialmente
 async function cargarPokemones() {
+    showLoader(); // Mostrar el loader antes de comenzar la carga
     for (let i = 1; i <= 151; i++) {
         try {
             const response = await fetch(url + i);
@@ -16,6 +29,7 @@ async function cargarPokemones() {
             console.error(`Error al cargar el Pokémon ${i}:`, error);
         }
     }
+    hideLoader(); // Ocultar el loader cuando se completa la carga
 }
 
 // Iniciar la carga de Pokémon
@@ -43,7 +57,7 @@ function mostrarPokemon(data) {
 }
 
 // Manejar el formulario de búsqueda
-document.getElementById('search-form').addEventListener('submit', function(event) {
+searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const search = document.getElementById('default-search').value.toLowerCase();
 
