@@ -1,0 +1,107 @@
+.pokemones {
+    background-color: white;
+    border-radius: 0.5rem; 
+    padding: 1rem; 
+    width: 12rem; /* Ajusté el ancho para que tenga más espacio para el texto */
+    height: auto; /* Altura ajustable según el contenido */
+    object-fit: contain;
+    -webkit-box-shadow: 7px 7px 2px 0px rgba(51,0,255,1);
+    -moz-box-shadow: 7px 7px 2px 0px rgba(51,0,255,1);
+    box-shadow: 7px 7px 2px 0px rgba(51,0,255,1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        width: 100%;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.type-badge {
+color: rgb(255, 255, 255);
+font-weight: 500;
+padding: 0.25rem 0.5rem;
+border-radius: 9999px;
+width: 70px;
+}
+
+.poison {
+    background-color: #7C3AED; 
+}
+
+.fire, .dragon, .fighting {
+    background-color: #DC2626; 
+}
+
+.water {
+    background-color: #2563EB; 
+}
+
+.grass, .bug, .ground{
+    background-color: #16A34A; 
+}
+
+.electric {
+    background-color: #ffc155; 
+}
+
+.flying, .ice {
+    background-color: #93C5FD; 
+}
+
+.psychic, .fairy {
+    background-color: #de63f1; 
+}
+
+.rock, .ghost, .shadow, .steel, .unknown, .normal {
+    background-color: #c0c0c0; 
+}
+
+.pokeball{
+    position: relative;
+    width: 6vw;  
+    height: 6vw;
+    max-width: 150px;
+    max-height: 150px;  
+    background-color: white;
+    border: 0.3vw solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokeball::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: red;
+    border-radius: 50% 50% 0 0;
+    top: 0;
+}
+
+.pokeball::after{
+    content: '';
+    position: absolute;
+    top: calc(50% - 3px);
+    width: 100%;
+    height: 40%;
+    background-color: white;
+    
+}
+
+.boton{
+    width: 2vw;
+    height: 2vw;
+    border: 4px solid;
+    border-radius: 50%;
+    z-index:10;
+    background-color: white;
+}
