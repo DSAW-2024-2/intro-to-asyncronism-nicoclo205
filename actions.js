@@ -1,22 +1,27 @@
 const listaDePokemones = document.querySelector('#listaPokemon');
 const loaderContainer = document.querySelector('#loaderContainer');
 const searchForm = document.querySelector('#search-form');
+const searchInput = document.querySelector('#default-search');
 let url = "https://pokeapi.co/api/v2/pokemon/";
-let pokemones = []; // Array global para almacenar los datos de los Pokémon
+let pokemones = []; 
 
-// Función para mostrar el loader
+// Función para mostrar el loader y deshabilitar la búsqueda
 function showLoader() {
     loaderContainer.classList.remove('hidden');
+    searchInput.disabled = true;
+    searchInput.classList.add('bg-gray-100'); // Añade un estilo visual para indicar que está deshabilitado
 }
 
-// Función para ocultar el loader
+// Función para ocultar el loader y habilitar la búsqueda
 function hideLoader() {
     loaderContainer.classList.add('hidden');
+    searchInput.disabled = false;
+    searchInput.classList.remove('bg-gray-100');
 }
 
 // Función para cargar los Pokémon secuencialmente
 async function cargarPokemones() {
-    showLoader(); // Mostrar el loader antes de comenzar la carga
+    showLoader(); // Mostrar el loader y deshabilitar la búsqueda antes de comenzar la carga
     for (let i = 1; i <= 151; i++) {
         try {
             const response = await fetch(url + i);
@@ -29,7 +34,7 @@ async function cargarPokemones() {
             console.error(`Error al cargar el Pokémon ${i}:`, error);
         }
     }
-    hideLoader(); // Ocultar el loader cuando se completa la carga
+    hideLoader(); // Ocultar el loader y habilitar la búsqueda cuando se completa la carga
 }
 
 // Iniciar la carga de Pokémon
@@ -59,7 +64,7 @@ function mostrarPokemon(data) {
 // Manejar el formulario de búsqueda
 searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    const search = document.getElementById('default-search').value.toLowerCase();
+    const search = searchInput.value.toLowerCase();
 
     const pokemonesDiv = document.querySelectorAll('.pokemones');
     pokemonesDiv.forEach(pokemon => pokemon.classList.add('hidden'));
@@ -81,6 +86,6 @@ searchForm.addEventListener('submit', function(event) {
             });
         });
     } else {
-        alert('No se encontró el Pokémon.');
+        alert('No se encontraron resultados');
     }
 });
